@@ -1,0 +1,14 @@
+﻿<Window x:Class="ScrumAdministrator.Ui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScrumAdministrator.Ui"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <local:StoryOverviewView DataContext="{Binding StoryOverview}" />
+        <!--<TextBox Grid.ColumnSpan="2" Text="{Binding StoryNumbers}" />
+        <Button Grid.Column="1" Grid.Row="1" Command="{Binding PrintCommand}">Print</Button>-->
+    </Grid>
+</Window>
