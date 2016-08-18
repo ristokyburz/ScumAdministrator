@@ -28,10 +28,10 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             StoryColors = new List<StoryColor>
             {
                 new StoryColor { Description = "Jira", ColorBrush = new XSolidBrush(XColor.FromArgb(255, 255, 255)) },
-                new StoryColor { Description = "Yellow", ColorBrush = new XSolidBrush(XColor.FromArgb(255, 253, 165)) },
-                new StoryColor { Description = "Blue", ColorBrush = new XSolidBrush(XColor.FromArgb(186, 230, 252)) },
-                new StoryColor { Description = "Green", ColorBrush = new XSolidBrush(XColor.FromArgb(181, 237, 208)) },
-                new StoryColor { Description = "Red", ColorBrush = new XSolidBrush(XColor.FromArgb(232, 190, 186)) },
+                new StoryColor { Description = "Yellow", ColorBrush = new XSolidBrush(XColor.FromArgb(170, 255, 225, 65)) },
+                new StoryColor { Description = "Blue", ColorBrush = new XSolidBrush(XColor.FromArgb(170, 71, 136, 222)) },
+                new StoryColor { Description = "Green", ColorBrush = new XSolidBrush(XColor.FromArgb(170, 119, 181, 119)) },
+                new StoryColor { Description = "Red", ColorBrush = new XSolidBrush(XColor.FromArgb(170, 242, 100, 90)) },
                 new StoryColor { Description = "White", ColorBrush = new XSolidBrush(XColor.FromArgb(255, 255, 255)) }
             };
 
@@ -244,22 +244,22 @@ namespace ScrumAdministrator.Cockpit.ViewModel
                             switch (epicColor)
                             {
                                 case "ghx-label-1":
-                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(150, 129, 91, 58));
+                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(170, 129, 91, 58));
                                     break;
                                 case "ghx-label-3":
-                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(150, 211, 156, 63));
+                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(170, 211, 156, 63));
                                     break;
                                 case "ghx-label-5":
-                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(150, 74, 103, 133));
+                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(170, 74, 103, 133));
                                     break;
                                 case "ghx-label-6":
-                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(150, 142, 176, 33));
+                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(170, 142, 176, 33));
                                     break;
                                 case "ghx-label-8":
-                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(150, 101, 73, 130));
+                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(170, 101, 73, 130));
                                     break;
                                 case "ghx-label-9":
-                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(150, 241, 92, 117));
+                                    StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(170, 241, 92, 117));
                                     break;
                                 default:
                                     StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(255, 255, 255));

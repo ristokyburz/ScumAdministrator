@@ -9,9 +9,9 @@ namespace ScrumAdministrator.Cockpit.ViewModel
 {
     public class ChartViewModel : ViewModelBase
     {
-        private const int FOKUSFACTOR = 1;
+        private const int FOKUSFACTOR = 2;
         private const int STROKETHIKNESS = 1;
-        private const int YAXISDELTA = 50;
+        private const int YAXISDELTA = 25;
 
         public ChartViewModel()
         {

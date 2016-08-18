@@ -24,10 +24,10 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             StoryColors = new List<StoryColor>
             {
                 new StoryColor { Description = "Jira", ColorBrush = new XSolidBrush(XColor.FromArgb(255, 255, 255)) },
-                new StoryColor { Description = "Yellow", ColorBrush = new XSolidBrush(XColor.FromArgb(255, 253, 165)) },
-                new StoryColor { Description = "Blue", ColorBrush = new XSolidBrush(XColor.FromArgb(186, 230, 252)) },
-                new StoryColor { Description = "Green", ColorBrush = new XSolidBrush(XColor.FromArgb(181, 237, 208)) },
-                new StoryColor { Description = "Red", ColorBrush = new XSolidBrush(XColor.FromArgb(232, 190, 186)) },
+                new StoryColor { Description = "Yellow", ColorBrush = new XSolidBrush(XColor.FromArgb(200, 255, 225, 65)) },
+                new StoryColor { Description = "Blue", ColorBrush = new XSolidBrush(XColor.FromArgb(200, 71, 136, 222)) },
+                new StoryColor { Description = "Green", ColorBrush = new XSolidBrush(XColor.FromArgb(200, 119, 181, 119)) },
+                new StoryColor { Description = "Red", ColorBrush = new XSolidBrush(XColor.FromArgb(200, 242, 100, 90)) },
                 new StoryColor { Description = "White", ColorBrush = new XSolidBrush(XColor.FromArgb(255, 255, 255)) }
             };
 
