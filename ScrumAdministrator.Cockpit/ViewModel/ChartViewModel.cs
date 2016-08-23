@@ -52,7 +52,7 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             {
                 if (CurrentArt != null)
                 {
-                    return 500;
+                    return 250;
                     // return (int)Math.Round(CurrentArt.NumberStoryPointsTotal / 10, MidpointRounding.AwayFromZero) * 10;
                 }
 

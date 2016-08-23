@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using System.Windows.Media;
 
 namespace ScrumAdministrator.Cockpit.ViewModel
 {
@@ -40,18 +41,18 @@ namespace ScrumAdministrator.Cockpit.ViewModel
 
         public void Initialize(
             StoryOverviewViewModel parentViewModel,
-            Story story)
+            Epic epic)
         {
-            Story = story;
+            Epic = epic;
             SetJiraColor();
             _parentViewModel = parentViewModel;
         }
 
         private void SetJiraColor()
         {
-            if (Story.JiraStory.CustomFields["Epic Color"] != null)
+            if (Epic.JiraStory.CustomFields["Epic Color"] != null)
             {
-                string epicColor = Story.JiraStory.CustomFields["Epic Color"].Values.First();
+                string epicColor = Epic.JiraStory.CustomFields["Epic Color"].Values.First();
                 switch (epicColor)
                 {
                     case "ghx-label-1":
@@ -79,30 +80,29 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             }
         }
 
-        public Story Story { get; set; }
+        public Epic Epic { get; set; }
 
         public string Id
         {
-            get { return Story.Id; }
+            get { return Epic.Id; }
             set
             {
-                if (Story.Id != value)
+                if (Epic.Id != value)
                 {
-                    Story.Id = value;
+                    Epic.Id = value;
                     RaisePropertyChanged();
-                    LoadStory(Story.Id);
                 }
             }
         }
 
         public int Priority
         {
-            get { return Story.Priority; }
+            get { return Epic.Priority; }
             set
             {
-                if (Story.Priority != value)
+                if (Epic.Priority != value)
                 {
-                    Story.Priority = value;
+                    Epic.Priority = value;
                     RaisePropertyChanged();
                 }
             }
@@ -112,16 +112,16 @@ namespace ScrumAdministrator.Cockpit.ViewModel
         {
             get
             {
-                if (Story != null && Story.JiraStory != null)
+                if (Epic != null && Epic.JiraStory != null)
                 {
                     int maxLengthOfSummery = 48;
-                    if (Story.JiraStory.Summary.Length > maxLengthOfSummery)
+                    if (Epic.JiraStory.Summary.Length > maxLengthOfSummery)
                     {
-                        return string.Format("{0}...", Story.JiraStory.Summary.Substring(0, maxLengthOfSummery));
+                        return string.Format("{0}...", Epic.JiraStory.Summary.Substring(0, maxLengthOfSummery));
                     }
                     else
                     {
-                        return Story.JiraStory.Summary;
+                        return Epic.JiraStory.Summary;
                     }
 
                 }
@@ -132,9 +132,28 @@ namespace ScrumAdministrator.Cockpit.ViewModel
 
         public string Url
         {
-            get { return Story.StoryJiraUrl; }
+            get { return Epic.StoryJiraUrl; }
         }
 
+        public int StoryPointsTotal
+        {
+            get { return (int)Epic.StoryPointsTotal; }
+        }
+
+        public int StoryPointsOpen
+        {
+            get { return (int)Epic.StoryPointsOpen; }
+        }
+
+        public int StoryPointsInProgress
+        {
+            get { return (int)Epic.StoryPointsInProgress; }
+        }
+
+        public int StoryPointsDone
+        {
+            get { return (int)Epic.StoryPointsDone; }
+        }
 
         public bool IsStoryToPrint
         {
@@ -164,6 +183,40 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             }
         }
 
+        public Brush StatusColor
+        {
+            get
+            {
+                if (StoryPointsTotal == 0)
+                {
+                    return new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                }
+
+                double part = (double)StoryPointsDone / (double)StoryPointsTotal;
+
+                if (part == 1)
+                {
+                    return new SolidColorBrush(Color.FromArgb(255, 153, 204, 153));
+                }
+                else if (part > 0.8)
+                {
+                    return new SolidColorBrush(Color.FromArgb(255, 227, 234, 90));
+                }
+                else if (part > 0.4)
+                {
+                    return new SolidColorBrush(Color.FromArgb(255, 245, 182, 34));
+                }
+                else if (part > 0.2)
+                {
+                    return new SolidColorBrush(Color.FromArgb(255, 255, 194, 122));
+                }
+                else
+                {
+                    return new SolidColorBrush(Color.FromArgb(255, 253, 191, 156));
+                }
+            }
+        }
+
         public void UpdateItems()
         {
             RaisePropertyChanged("AddStoryVisibility");
@@ -172,6 +225,11 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             RaisePropertyChanged("StoryPoints");
             RaisePropertyChanged("Title");
             RaisePropertyChanged("Url");
+            RaisePropertyChanged("StoryPointsTotal");
+            RaisePropertyChanged("StoryPointsOpen");
+            RaisePropertyChanged("StoryPointsInProgress");
+            RaisePropertyChanged("StoryPointsDone");
+            RaisePropertyChanged("StatusColor");
         }
 
         private void ExecuteAddStory()
@@ -187,23 +245,6 @@ namespace ScrumAdministrator.Cockpit.ViewModel
         public void ExecuteOpenUrl()
         {
             Process.Start(Url);
-        }
-
-        private async void LoadStory(string id)
-        {
-            Story loadedStory = null;
-            await Task.Factory.StartNew(() => loadedStory = _jiraService.GetStory(id));
-
-            if (loadedStory != null)
-            {
-                Story = loadedStory;
-            }
-            else
-            {
-                Story = new Story();
-            }
-
-            UpdateItems();
         }
     }
 }

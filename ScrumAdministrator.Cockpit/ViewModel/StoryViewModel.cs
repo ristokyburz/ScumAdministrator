@@ -234,13 +234,13 @@ namespace ScrumAdministrator.Cockpit.ViewModel
                 if (Story.JiraStory.CustomFields["Epic Link"] != null)
                 {
                     var epicId = Story.JiraStory.CustomFields["Epic Link"].Values.First();
-                    var epic = _parentViewModel.Epics.SingleOrDefault(x => x.Story.Id == epicId);
+                    var epic = _parentViewModel.Epics.SingleOrDefault(x => x.Epic.Id == epicId);
 
                     if (epic != null)
                     {
-                        if (epic.Story.JiraStory.CustomFields["Epic Color"] != null)
+                        if (epic.Epic.JiraStory.CustomFields["Epic Color"] != null)
                         {
-                            string epicColor = epic.Story.JiraStory.CustomFields["Epic Color"].Values.First();
+                            string epicColor = epic.Epic.JiraStory.CustomFields["Epic Color"].Values.First();
                             switch (epicColor)
                             {
                                 case "ghx-label-1":

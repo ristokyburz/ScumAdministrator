@@ -69,6 +69,7 @@
     <Compile Include="Domain\Art.cs" />
     <Compile Include="Domain\ClosedSprint.cs" />
     <Compile Include="Domain\ActivSprint.cs" />
+    <Compile Include="Domain\Epic.cs" />
     <Compile Include="Domain\Sprint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Story.cs" />

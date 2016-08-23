@@ -35,6 +35,11 @@ namespace ScrumAdministrator.Server.Service
             Print(stories);
         }
 
+        public void UpdateStory(Story story)
+        {
+            _jiraRepository.MoveStory(story, 0);
+        }
+
         private void Print(List<Story> stories)
         {
             var document = new PdfDocument();

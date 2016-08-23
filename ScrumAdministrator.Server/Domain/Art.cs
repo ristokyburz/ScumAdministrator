@@ -9,7 +9,7 @@ namespace ScrumAdministrator.Server.Domain
         {
             ActiveSprints = new List<ActivSprint>();
             ClosedSprints = new List<ClosedSprint>();
-            Epics = new List<Story>();
+            Epics = new List<Epic>();
         }
 
         public string ArtDescription { get; set; }
@@ -111,6 +111,6 @@ namespace ScrumAdministrator.Server.Domain
 
         public List<ClosedSprint> ClosedSprints { get; set; }
 
-        public List<Story> Epics { get; set; }
+        public List<Epic> Epics { get; set; }
     }
 }

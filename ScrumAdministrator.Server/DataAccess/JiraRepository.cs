@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ScrumAdministrator.Server.DataAccess
 {
@@ -31,8 +32,43 @@ namespace ScrumAdministrator.Server.DataAccess
             return art;
         }
 
+        public void LoadIssuesOfStories(List<Story> stories)
+        {
+            var issueKeys = new List<ComparableString>();
+            var jiraStories = new List<Issue>();
+            var invalidStories = new List<Story>();
+
+            foreach (var story in stories)
+            {
+                try
+                {
+                    story.JiraStory = _jiraRestClient.GetIssue(story.Id);
+                }
+                catch (Exception)
+                {
+                    invalidStories.Add(story);
+                    continue;
+                }
+            }
+
+            foreach (var invalidStory in invalidStories)
+            {
+                stories.Remove(invalidStory);
+            }
+        }
+
+        public void MoveStory(Story story, int newSprintId)
+        {
+            var issue = _jiraRestClient.GetIssue("EONE-5571");
+            issue.CustomFields["Story Points"].Values[0] = "1";
+            
+            issue.SaveChanges();
+            Task.Run<Issue>(() => _jiraRestClient.RestClient.UpdateIssueAsync(issue, new System.Threading.CancellationToken()));
+        }
+
         private void AddActiveSprints(Art art)
         {
+            //_jiraRestClient.RestClient
             var sprintIdWithDescriptions = ConfigurationManager.AppSettings["Sprints"].Split('|').ToList();
             int internalId = 1;
 
@@ -108,6 +144,7 @@ namespace ScrumAdministrator.Server.DataAccess
         {
             var epicIds = new List<string>();
             var epicIdsString = string.Empty;
+            var allStories = art.ActiveSprints.SelectMany(x => x.Stories);
 
             foreach (var story in art.ActiveSprints.SelectMany(x => x.Stories))
             {
@@ -138,11 +175,12 @@ namespace ScrumAdministrator.Server.DataAccess
             int priority = 1;
             foreach (var jiraStory in jiraIssues)
             {
-                var story = new Story
+                var story = new Epic
                 {
                     Id = jiraStory.Key.ToString(),
                     JiraStory = jiraStory,
-                    Priority = priority
+                    Priority = priority,
+                    Stories = allStories.Where(x => x.JiraStory.CustomFields["Epic Link"] != null && x.JiraStory.CustomFields["Epic Link"].Values.First() == jiraStory.Key.Value).ToList()
                 };
 
                 art.Epics.Add(story);
@@ -167,30 +205,5 @@ namespace ScrumAdministrator.Server.DataAccess
                 return null;
             }
         } 
-
-        public void LoadIssuesOfStories(List<Story> stories)
-        {
-            var issueKeys  = new List<ComparableString>();
-            var jiraStories = new List<Issue>();
-            var invalidStories = new List<Story>();
-
-            foreach (var story in stories)
-            {
-                try
-                {
-                    story.JiraStory = _jiraRestClient.GetIssue(story.Id);
-                }
-                catch (Exception)
-                {
-                    invalidStories.Add(story);
-                    continue;
-                }
-            }
-
-            foreach (var invalidStory in invalidStories)
-            {
-                stories.Remove(invalidStory);
-            }
-        }
     }
 }
