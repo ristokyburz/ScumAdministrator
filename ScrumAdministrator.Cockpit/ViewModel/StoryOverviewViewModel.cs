@@ -34,7 +34,6 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             PrintEpicsCommand = new RelayCommand(ExecutePrintEpicsCommand, CanExecutePrintEpicsCommand);
             _jiraService = new JiraService();
             CurrentArt = new Art();
-            GetSprints();
 
             StoryColorsForAll = new List<StoryColor>
             {
@@ -62,6 +61,11 @@ namespace ScrumAdministrator.Cockpit.ViewModel
 
             IsStoryToPrintForAll = true;
             IsEpicToPrintForAll = true;
+        }
+
+        public void Initialize()
+        {
+            GetSprints();
         }
 
         public RelayCommand PrintStoriesCommand { get; private set; }
@@ -267,6 +271,8 @@ namespace ScrumAdministrator.Cockpit.ViewModel
 
         private async void GetSprints()
         {
+            var splashScreen = new SplashScreen("SplashScreen.png");
+            splashScreen.Show(false, true);
             var sprints = new List<ActivSprint>();
             BusyIndicatorVisibility = Visibility.Visible;
             await Task.Factory.StartNew(() => CurrentArt = _jiraService.GetCurrentArt());
@@ -278,6 +284,7 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             RaisePropertyChanged("ChartViewModel");
             ChartViewModel.Update();
             BusyIndicatorVisibility = Visibility.Hidden;
+            splashScreen.Close(new TimeSpan(1000));
         }
 
         private void AddEpics()

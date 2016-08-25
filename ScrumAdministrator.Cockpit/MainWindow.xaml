@@ -7,16 +7,19 @@
         xmlns:local="clr-namespace:ScrumAdministrator.Cockpit"
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         mc:Ignorable="d ignore"
-        Height="900"
-        Width="1670"
-        Title="Art Planning" ResizeMode="CanMinimize"
-        Style="{StaticResource ResourceKey=BlankWindow}">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="1670"/>
-            <ColumnDefinition Width="5"/>
-        </Grid.ColumnDefinitions>
-        <local:StoryOverviewView Grid.Column="1" DataContext="{Binding StoryOverviewViewModel}" />
-    </Grid>
+        Height="980"
+        Width="1700"
+        Title="Finnova Art Planning" IsTitleVisible="True" ResizeMode="CanMinimize"
+        ContentSource="StoryOverviewView.xaml">
+    <mui:ModernWindow.TitleLinks>
+        <mui:Link DisplayName="Settings" Source="/Pages/Settings.xaml" />
+        <mui:Link DisplayName="Help" Source="https://github.com/firstfloorsoftware/mui/wiki" />
+    </mui:ModernWindow.TitleLinks>
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="Overview">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Epics / Stories" Source="/StoryOverviewView.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
 </mui:ModernWindow>

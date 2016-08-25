@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using ScrumAdministrator.Cockpit.ViewModel;
 using FirstFloor.ModernUI.Windows.Controls;
+using System.ComponentModel;
 
 namespace ScrumAdministrator.Cockpit
 {
@@ -9,14 +10,10 @@ namespace ScrumAdministrator.Cockpit
     /// </summary>
     public partial class MainWindow : ModernWindow
     {
-        /// <summary>
-        /// Initializes a new instance of the MainWindow class.
-        /// </summary>
         public MainWindow()
         {
-            DataContext = new MainViewModel();
             InitializeComponent();
-            //Closing += (s, e) => ViewModelLocator.Cleanup();
+            DataContext = new MainViewModel();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ScrumAdministrator.Cockpit.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ScrumAdministrator.Cockpit
@@ -13,7 +14,10 @@ namespace ScrumAdministrator.Cockpit
         /// </summary>
         public StoryOverviewView()
         {
+            var storyOverViewModel = new StoryOverviewViewModel();
+            DataContext = storyOverViewModel;
             InitializeComponent();
+            storyOverViewModel.Initialize();
         }
     }
 }
