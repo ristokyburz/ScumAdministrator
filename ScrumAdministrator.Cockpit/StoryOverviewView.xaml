@@ -32,7 +32,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="720"/>
-            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="700"/>
@@ -51,7 +51,7 @@
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="120"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>
@@ -68,7 +68,7 @@
             <TextBlock Grid.Column="6" Grid.Row="1" Text="Done" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold" Padding="3,0,3,0" />
             <TextBlock Grid.Column="7" Grid.Row="1" Text="Color" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold" />
             <TextBlock Grid.Column="8" Grid.Row="1" Text="Print" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Column="7" Grid.Row="2" ItemsSource="{Binding EpicColorsForAll}" Height="25" Width="65" SelectedItem="{Binding SelectedEpicColorForAll}" DisplayMemberPath="Description" />
+            <ComboBox Grid.Column="7" Grid.Row="2" ItemsSource="{Binding EpicColorsForAll}" SelectedItem="{Binding SelectedEpicColorForAll}" DisplayMemberPath="Description" />
             <CheckBox Grid.Column="8" Grid.Row="2" IsChecked="{Binding IsEpicToPrintForAll}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="3" Grid.ColumnSpan="10" VerticalScrollBarVisibility="Hidden">
                 <ItemsControl ItemsSource="{Binding Epics}" ScrollViewer.CanContentScroll="True">
@@ -81,26 +81,6 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
-            <Border Grid.Column="0" Grid.Row="1" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="1" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="2" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="3" Grid.Row="1" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="4" Grid.Row="1" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="5" Grid.Row="1" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="6" Grid.Row="1" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="7" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="8" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="9" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="0" Grid.Row="2" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="1" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="2" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="3" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="4" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="5" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="6" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="7" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="8" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="9" Grid.Row="2" BorderThickness="0.5,0,0,1" Padding="0,0,0,10" BorderBrush="#FFBDB0B0" />
         </Grid>
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Stories" FontFamily="Calibri" FontSize="16" FontWeight="Bold" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" />
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Sprint:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -116,7 +96,7 @@
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="120"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>
@@ -136,7 +116,7 @@
             <TextBlock Grid.Column="9" Grid.Row="1" Text="Add for Print" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold" />
             <CheckBox Grid.Column="5" Grid.Row="2" IsChecked="{Binding IsAdditionalStoryForAll}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <CheckBox Grid.Column="6" Grid.Row="2" IsChecked="{Binding IsWithDetailsForAll}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <ComboBox Grid.Column="7" Grid.Row="2" ItemsSource="{Binding StoryColorsForAll}" Height="25" Width="65" SelectedItem="{Binding SelectedStoryColorForAll}" DisplayMemberPath="Description" />
+            <ComboBox Grid.Column="7" Grid.Row="2" ItemsSource="{Binding StoryColorsForAll}" SelectedItem="{Binding SelectedStoryColorForAll}" DisplayMemberPath="Description" />
             <CheckBox Grid.Column="8" Grid.Row="2" IsChecked="{Binding IsStoryToPrintForAll}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="3" Grid.ColumnSpan="10" VerticalScrollBarVisibility="Hidden">
                 <ItemsControl ItemsSource="{Binding Stories}" ScrollViewer.CanContentScroll="True">
@@ -149,26 +129,6 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
-            <Border Grid.Column="0" Grid.Row="1" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="1" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="2" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="3" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="4" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="5" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="6" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="7" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="8" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="9" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="0" Grid.Row="2" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="1" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="2" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="3" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="4" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="5" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="6" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="7" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="8" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="9" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
         </Grid>
         <Grid Grid.Column="5" Grid.RowSpan="6">
             <Grid.ColumnDefinitions>
@@ -209,27 +169,6 @@
             <TextBlock Grid.Column="4" Grid.Row="2" Text="{Binding CurrentArt.NumberStoryPointsDvlOpen}" Background="#66FB6007" FontFamily="Calibri" FontSize="16" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Stretch" Padding="0,10,0,0" />
             <TextBlock Grid.Column="5" Grid.Row="2" Text="{Binding CurrentArt.NumberStoryPointsDvlInWork}" Background="#66FBDA07" FontFamily="Calibri" FontSize="16" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Stretch" Padding="0,10,0,0" />
             <TextBlock Grid.Column="6" Grid.Row="2" Text="{Binding CurrentArt.NumberStoryPointsDone}" Background="#66008000" FontFamily="Calibri" FontSize="16" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Stretch" Padding="0,10,0,0" />
-            <Border Grid.Column="0" Grid.Row="0" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="1" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="2" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="3" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="4" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="5" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="6" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="0" Grid.Row="1" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="1" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="2" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="3" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="4" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="5" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="6" Grid.Row="1" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="0" Grid.Row="2" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="1" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="2" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="3" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="4" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="5" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-            <Border Grid.Column="6" Grid.Row="2" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
 
             <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Text="Average" FontFamily="Calibri" FontSize="16" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" />
             <TextBlock Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Text="Weighted Average" FontFamily="Calibri" FontSize="16" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" />
@@ -253,7 +192,6 @@
 
         <TextBlock Grid.ColumnSpan="3" Grid.Row="3" />
         <Button Grid.Row="3" Grid.Column="2" Command="{Binding PrintStoriesCommand}">Print Stories</Button>
-        <Border Grid.ColumnSpan="5" Grid.RowSpan="6" Visibility="{Binding BusyIndicatorVisibility}" />
         <Ellipse Width="150" Height="150" Grid.ColumnSpan="7" Grid.RowSpan="6" Visibility="{Binding BusyIndicatorVisibility}" x:Name="ellipse" Margin="55,49,54,38" StrokeThickness="20" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>

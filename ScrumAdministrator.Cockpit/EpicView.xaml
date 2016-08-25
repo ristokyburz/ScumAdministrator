@@ -16,7 +16,7 @@
             <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -35,8 +35,8 @@
                 </Style>
             </Border.Style>
         </Border>
-        <TextBox Grid.Column="0" Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" Width="75" Height="25" Padding="3" />
-        <TextBox Grid.Column="1" Text="{Binding Priority}" VerticalAlignment="Stretch" TextAlignment="Right" Width="45" Height="25" Padding="3" />
+        <TextBox Grid.Column="0" Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" />
+        <TextBox Grid.Column="1" Text="{Binding Priority}" VerticalAlignment="Stretch" TextAlignment="Right" />
         <TextBlock Grid.Column="2" Grid.ColumnSpan="5" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Padding="5">
             <Hyperlink NavigateUri="{Binding Url}" Command="{Binding OpenUrlCommand}">
                     <TextBlock Text="{Binding Title}" />
@@ -45,19 +45,8 @@
         <TextBlock Grid.Column="3" Text="{Binding StoryPointsTotal}" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Padding="5"  />
         <TextBlock Grid.Column="4" Text="{Binding StoryPointsOpen}" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Padding="5"  />
         <TextBlock Grid.Column="5" Text="{Binding StoryPointsInProgress}" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Padding="5"  />
-        <TextBlock Grid.Column="6" Text="{Binding StoryPointsDone}" VerticalAlignment="Center" Background="{Binding StatusColor}" HorizontalAlignment="Stretch" TextAlignment="Center" Padding="5"  />
-        <ComboBox Grid.Column="7" ItemsSource="{Binding StoryColors}" Height="25" SelectedItem="{Binding SelectedStoryColor}" DisplayMemberPath="Description" Width="65" />
+        <TextBlock Grid.Column="6" Text="{Binding StoryPointsDone}" VerticalAlignment="Stretch" Background="{Binding StatusColor}" HorizontalAlignment="Stretch" TextAlignment="Center" Padding="5"  />
+        <ComboBox Grid.Column="7" ItemsSource="{Binding StoryColors}" SelectedItem="{Binding SelectedStoryColor}" DisplayMemberPath="Description" />
         <CheckBox Grid.Column="8" IsChecked="{Binding IsStoryToPrint}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-        <Border Grid.Column="0" Grid.Row="0" BorderThickness="0,0,0,0.5" BorderBrush="#FFBDB0B0" />
-        <Border Grid.Column="1" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-        <Border Grid.Column="2" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-        <Border Grid.Column="3" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-        <Border Grid.Column="4" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-        <Border Grid.Column="5" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-        <Border Grid.Column="6" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-        <Border Grid.Column="7" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-        <Border Grid.Column="8" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
-        <Border Grid.Column="9" Grid.Row="0" BorderThickness="0.5,0,0,0.5" BorderBrush="#FFBDB0B0" />
     </Grid>
 </UserControl>
