@@ -7,7 +7,7 @@ using ScrumAdministrator.Server.Service;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System;
+using System.Windows.Input;
 
 namespace ScrumAdministrator.Cockpit.ViewModel
 {
@@ -272,9 +272,10 @@ namespace ScrumAdministrator.Cockpit.ViewModel
         private async void GetSprints()
         {
             var splashScreen = new SplashScreen("SplashScreen.png");
-            splashScreen.Show(false, true);
+            splashScreen.Show(true, true);
             var sprints = new List<ActivSprint>();
-            BusyIndicatorVisibility = Visibility.Visible;
+            Mouse.OverrideCursor = Cursors.Wait;
+            //BusyIndicatorVisibility = Visibility.Visible;
             await Task.Factory.StartNew(() => CurrentArt = _jiraService.GetCurrentArt());
             AddEpics();
             CurrentArt.ActiveSprints.ForEach(x => Sprints.Add(x));
@@ -283,8 +284,8 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             RaisePropertyChanged("CurrentArt");
             RaisePropertyChanged("ChartViewModel");
             ChartViewModel.Update();
-            BusyIndicatorVisibility = Visibility.Hidden;
-            splashScreen.Close(new TimeSpan(1000));
+            //BusyIndicatorVisibility = Visibility.Hidden;
+            Mouse.OverrideCursor = null;
         }
 
         private void AddEpics()
@@ -301,7 +302,8 @@ namespace ScrumAdministrator.Cockpit.ViewModel
 
         private async void PrintStoryCards()
         {
-            BusyIndicatorVisibility = Visibility.Visible;
+            Mouse.OverrideCursor = Cursors.Wait;
+            //BusyIndicatorVisibility = Visibility.Visible;
             var stories = new List<Story>();
             foreach (var storyViewModel in Stories.Where(x => x.IsStoryToPrint))
             {
@@ -317,12 +319,15 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             }
 
             await Task.Factory.StartNew(() => _jiraService.PrintStories(stories));
-            BusyIndicatorVisibility = Visibility.Hidden;
+            //BusyIndicatorVisibility = Visibility.Hidden;
+            Mouse.OverrideCursor = null;
+
         }
 
         private async void PrintEpicCards()
         {
-            BusyIndicatorVisibility = Visibility.Visible;
+            Mouse.OverrideCursor = Cursors.Wait;
+            //BusyIndicatorVisibility = Visibility.Visible;
             var stories = new List<Story>();
             foreach (var epicViewModel in Epics.Where(x => x.IsStoryToPrint))
             {
@@ -336,7 +341,8 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             }
 
             await Task.Factory.StartNew(() => _jiraService.PrintStories(stories));
-            BusyIndicatorVisibility = Visibility.Hidden;
+            //BusyIndicatorVisibility = Visibility.Hidden;
+            Mouse.OverrideCursor = null;
         }
     }
 }

@@ -9,10 +9,11 @@
         mc:Ignorable="d ignore"
         Height="980"
         Width="1700"
+        LogoData="M 0.00 0.00 L 42.00 0.00 L 42.00 39.00 L 0.00 39.00 L 0.00 0.00 Z M 1.96 25.06 C -1.58 15.67 3.82 4.50 12.97 0.73 C 13.06 11.47 12.93 22.21 13.04 32.95 C 13.07 34.36 12.91 35.75 12.54 37.11 C 7.87 34.33 3.53 30.46 1.96 25.06 Z M 22.54 6.98 C 27.01 7.10 31.48 6.81 35.94 7.10 C 38.41 9.76 39.32 13.43 40.02 16.90 C 34.19 17.11 28.37 16.95 22.54 17.01 C 22.47 13.67 22.47 10.33 22.54 6.98 Z M 22.54 24.74 C 28.09 24.77 33.64 24.71 39.18 24.79 C 36.76 31.91 30.21 37.74 22.53 38.19 C 22.48 33.71 22.47 29.22 22.54 24.74 Z"
         Title="Finnova Art Planning" IsTitleVisible="True" ResizeMode="CanMinimize"
         ContentSource="StoryOverviewView.xaml">
     <mui:ModernWindow.TitleLinks>
-        <mui:Link DisplayName="Settings" Source="/Pages/Settings.xaml" />
+        <mui:Link DisplayName="Settings" Source="/SettingsView.xaml" />
         <mui:Link DisplayName="Help" Source="https://github.com/firstfloorsoftware/mui/wiki" />
     </mui:ModernWindow.TitleLinks>
     <mui:ModernWindow.MenuLinkGroups>

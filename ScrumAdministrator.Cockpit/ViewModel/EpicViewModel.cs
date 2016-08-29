@@ -196,23 +196,23 @@ namespace ScrumAdministrator.Cockpit.ViewModel
 
                 if (part == 1)
                 {
-                    return new SolidColorBrush(Color.FromArgb(255, 153, 204, 153));
+                    return new SolidColorBrush(Color.FromArgb(150, 153, 204, 153));
                 }
                 else if (part > 0.8)
                 {
-                    return new SolidColorBrush(Color.FromArgb(255, 227, 234, 90));
+                    return new SolidColorBrush(Color.FromArgb(150, 227, 234, 90));
                 }
                 else if (part > 0.4)
                 {
-                    return new SolidColorBrush(Color.FromArgb(255, 245, 182, 34));
+                    return new SolidColorBrush(Color.FromArgb(150, 245, 182, 34));
                 }
                 else if (part > 0.2)
                 {
-                    return new SolidColorBrush(Color.FromArgb(255, 255, 194, 122));
+                    return new SolidColorBrush(Color.FromArgb(150, 255, 194, 122));
                 }
                 else
                 {
-                    return new SolidColorBrush(Color.FromArgb(255, 253, 191, 156));
+                    return new SolidColorBrush(Color.FromArgb(150, 253, 191, 156));
                 }
             }
         }
