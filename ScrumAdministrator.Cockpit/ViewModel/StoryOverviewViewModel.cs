@@ -284,6 +284,8 @@ namespace ScrumAdministrator.Cockpit.ViewModel
             RaisePropertyChanged("CurrentArt");
             RaisePropertyChanged("ChartViewModel");
             ChartViewModel.Update();
+
+
             //BusyIndicatorVisibility = Visibility.Hidden;
             Mouse.OverrideCursor = null;
         }
