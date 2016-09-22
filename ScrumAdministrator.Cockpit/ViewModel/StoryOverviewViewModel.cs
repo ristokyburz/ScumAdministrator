@@ -238,7 +238,7 @@ namespace ScrumAdministrator.Cockpit.ViewModel
         public void AddNewStory()
         {
             var storyViewModel = new StoryViewModel();
-            storyViewModel.Initialize(this, new Story { Id = "EONE-", Priority = 0 }, false, false);
+            storyViewModel.Initialize(this, new Story { Id = "", Priority = 0 }, false, false);
             Stories.Add(storyViewModel);
 
             _jiraService.UpdateStory(Stories.Last().Story);

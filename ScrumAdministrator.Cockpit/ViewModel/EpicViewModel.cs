@@ -58,14 +58,23 @@ namespace ScrumAdministrator.Cockpit.ViewModel
                     case "ghx-label-1":
                         StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(200, 129, 91, 58));
                         break;
+                    case "ghx-label-2":
+                        StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(200, 247, 146, 50));
+                        break;
                     case "ghx-label-3":
                         StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(200, 211, 156, 63));
+                        break;
+                    case "ghx-label-4":
+                        StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(200, 59, 127, 196));
                         break;
                     case "ghx-label-5":
                         StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(200, 74, 103, 133));
                         break;
                     case "ghx-label-6":
                         StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(200, 142, 176, 33));
+                        break;
+                    case "ghx-label-7":
+                        StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(200, 172, 112, 122));
                         break;
                     case "ghx-label-8":
                         StoryColors.Single(x => x.Description == "Jira").ColorBrush = new XSolidBrush(XColor.FromArgb(200, 101, 73, 130));
